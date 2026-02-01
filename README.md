@@ -40,7 +40,7 @@ runbook dev
 ## Install
 
 ```bash
-npm install -g runbook
+npm install -g runbook-cli
 ```
 
 ## Usage

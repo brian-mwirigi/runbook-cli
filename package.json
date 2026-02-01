@@ -1,5 +1,5 @@
 {
-  "name": "runbook",
+  "name": "runbook-cli",
   "version": "1.0.0",
   "description": "Remember project commands. Run them from anywhere.",
   "main": "dist/index.js",
