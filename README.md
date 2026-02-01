@@ -1,27 +1,34 @@
-# runbook
+<div align="center">
+  <h1>runbook-cli</h1>
+  <p><strong>Remember project commands. Run them from anywhere.</strong></p>
+  
+  <p>
+    <a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/v/runbook-cli?color=brightgreen" alt="npm version"></a>
+    <a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/dm/runbook-cli" alt="npm downloads"></a>
+    <a href="https://github.com/brian-mwirigi/runbook-cli/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/runbook-cli" alt="license"></a>
+  </p>
 
-Remember project commands. Run them from anywhere.
+  <p><em>Stop checking README. Stop guessing commands. Just run.</em></p>
+</div>
 
-## The Problem
+---
+
+##  The Problem
 
 Every project runs differently. You can't remember. You check the README every time.
 
 ```bash
 # Is it...
-npm run dev
-# or
-npm start  
-# or
-pnpm dev
-# or  
-python manage.py runserver
-# or
-go run main.go
+npm run dev        # or
+npm start          # or
+pnpm dev           # or  
+python manage.py runserver  # or
+go run main.go     # ???
 ```
 
 **Stop guessing. Stop checking.**
 
-## The Solution
+##  The Solution
 
 Set it once. Run it forever.
 
@@ -34,16 +41,18 @@ runbook set build "npm run build"
 # Run from anywhere in the project
 runbook dev
 
-# That's it.
+# That's it. 
 ```
 
-## Install
+> **Demo:** _[Add GIF here showing setting and running commands]_
+
+##  Install
 
 ```bash
 npm install -g runbook-cli
 ```
 
-## Usage
+##  Usage
 
 ### Set Commands
 
@@ -193,15 +202,24 @@ runbook set backend "cd backend && python manage.py runserver"
 runbook set frontend "cd frontend && npm start"
 ```
 
-## Why runbook?
+##  Why runbook?
 
-- **No more README diving** - Commands right there
-- **Works everywhere** - Any subfolder, always works
-- **Team onboarding** - New dev runs `runbook dev`, done
-- **Cross-language** - Node, Python, Go, Rust - doesn't matter
-- **Zero config** - Just set and run
+| Feature | runbook | README | Makefile | package.json scripts |
+|---------|---------|---------|----------|---------------------|
+| **Works everywhere** | ✅ Any subfolder | ❌ Root only | ❌ Root only | ❌ Root only |
+| **Cross-language** | ✅ Node, Python, Go, Rust | ✅ | ✅ | ❌ Node only |
+| **No config** | ✅ Just set & run | ❌ Need to read | ❌ Need Makefile | ❌ Need package.json |
+| **Team sharing** | ✅ Commit `.runbook` | ⚠️ Documentation | ⚠️ Documentation | ⚠️ Node projects |
+| **Instant recall** | ✅ `runbook` shows all | ❌ Search README | ❌ Search Makefile | ❌ Open file |
 
-## Data Storage
+##  Real-World Benefits
+
+- **Onboarding**: New dev runs `runbook dev`, they're coding in 10 seconds
+- **Context switching**: Jump between 5 projects? Each has different commands? `runbook` remembers
+- **Remote work**: SSH into server, forgot commands? `runbook` knows
+- **Polyglot teams**: Frontend, backend, mobile - all use `runbook`
+
+##  Examples
 
 Commands stored in `.runbook` in project root (JSON format).
 
@@ -213,14 +231,27 @@ Commands stored in `.runbook` in project root (JSON format).
 }
 ```
 
-## License
+**Tip:** Commit `.runbook` to git so your team uses the same commands!
+
+##  Contributing
+
+Found a bug? Have an idea? [Open an issue](https://github.com/brian-mwirigi/runbook-cli/issues) or submit a PR!
+
+##  License
 
 MIT
 
-## Author
+##  Author
 
-Built by [Brian Mwirigi](https://github.com/brian-mwirigi)
+Built by [Brian Mwirigi](https://github.com/brian-mwirigi)  
+Blog: [brianmunene.me/blog](https://brianmunene.me/blog)
 
 ---
 
-**Stop thinking. Start running.**
+<div align="center">
+  <strong>Stop thinking. Start running.</strong>
+  <br><br>
+  <a href="https://www.npmjs.com/package/runbook-cli">npm</a> •
+  <a href="https://github.com/brian-mwirigi/runbook-cli">GitHub</a> •
+  <a href="https://github.com/brian-mwirigi/runbook-cli/issues">Issues</a>
+</div>
