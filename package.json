@@ -1,0 +1,39 @@
+{
+  "name": "runbook",
+  "version": "1.0.0",
+  "description": "Remember project commands. Run them from anywhere.",
+  "main": "dist/index.js",
+  "bin": {
+    "runbook": "./dist/index.js",
+    "rb": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "commands",
+    "project",
+    "cli",
+    "dev",
+    "workflow",
+    "automation"
+  ],
+  "author": "Brian Mwirigi",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0",
+    "cli-table3": "^0.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
