@@ -8,7 +8,7 @@
     <a href="https://github.com/brian-mwirigi/runbook-cli/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/runbook-cli" alt="license"></a>
   </p>
 
-  <p><em>Stop checking README. Stop guessing commands. Just run.</em></p>
+  <p><em>Stop checking README. Stop guessing commands.</em></p>
 </div>
 
 ---
@@ -26,7 +26,7 @@ python manage.py runserver  # or
 go run main.go     # ???
 ```
 
-**Stop guessing. Stop checking.**
+**Stop guessing..**
 
 ##  The Solution
 
@@ -44,7 +44,6 @@ runbook dev
 # That's it. 
 ```
 
-> **Demo:** _[Add GIF here showing setting and running commands]_
 
 ##  Install
 
