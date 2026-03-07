@@ -1,102 +1,125 @@
 <div align="center">
-  <h1>runbook-cli</h1>
-  <p><strong>Remember project commands. Run them from anywhere.</strong></p>
-  
-  <p>
-    <a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/v/runbook-cli?color=brightgreen" alt="npm version"></a>
-    <a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/dm/runbook-cli" alt="npm downloads"></a>
-    <a href="https://github.com/brian-mwirigi/runbook-cli/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/runbook-cli" alt="license"></a>
-  </p>
 
-  <p><em>Stop checking README. Stop guessing commands.</em></p>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=120&section=header" width="100%"/>
+
+# runbook-cli
+
+### Save and run project commands from anywhere
+
+<p>
+<a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/v/runbook-cli?style=for-the-badge&color=brightgreen&label=version" alt="npm version"></a>&nbsp;
+<a href="https://www.npmjs.com/package/runbook-cli"><img src="https://img.shields.io/npm/dw/runbook-cli?style=for-the-badge&color=blue&label=downloads" alt="npm downloads"></a>&nbsp;
+<a href="https://github.com/brian-mwirigi/runbook-cli/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/runbook-cli?style=for-the-badge" alt="license"></a>&nbsp;
+<img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">&nbsp;
+<img src="https://img.shields.io/badge/Node.js-%3E%3D18-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
+</p>
+
+**Stop checking README &bull; Stop guessing commands &bull; Just run**
+
+[Documentation](https://www.brianmunene.me/docs/runbook-cli-docs) &bull; [npm](https://www.npmjs.com/package/runbook-cli) &bull; [Issues](https://github.com/brian-mwirigi/runbook-cli/issues)
+
 </div>
 
----
+<br/>
 
-##  The Problem
+## Why runbook-cli?
 
-Every project runs differently. You can't remember. You check the README every time.
+Every project runs differently. You can't remember. You check the README every single time.
 
 ```bash
 # Is it...
-npm run dev        # or
-npm start          # or
-pnpm dev           # or  
-python manage.py runserver  # or
-go run main.go     # ???
+npm run dev          # or
+npm start            # or
+pnpm dev             # or
+python manage.py runserver   # ???
 ```
 
-**Stop guessing..**
-
-##  The Solution
-
-Set it once. Run it forever.
+**Stop guessing.** Set it once. Run it forever.
 
 ```bash
-# Set commands
+runbook set dev "npm run dev"
+runbook dev
+# Done.
+```
+
+---
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [Features](#features)
+- [Commands](#commands)
+- [Real-World Examples](#real-world-examples)
+- [Team Usage](#team-usage)
+- [Why runbook?](#why-runbook)
+- [Development](#development)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Quick Start
+
+```bash
+npm install -g runbook-cli
+
 runbook set dev "npm run dev"
 runbook set test "npm test"
 runbook set build "npm run build"
 
-# Run from anywhere in the project
+# From anywhere in the project:
 runbook dev
-
-# That's it. 
 ```
 
+---
 
-##  Install
+## Features
+
+| Feature | Description |
+|---------|-------------|
+| **Set & Run** | Save any command, run it by name |
+| **Works Anywhere** | Run from any subfolder in the project |
+| **Cross-Language** | Node, Python, Go, Rust, Docker — anything |
+| **Team Sharing** | Commit `.runbook` to git |
+| **Auto-Detection** | Finds git root automatically |
+| **Short Alias** | `rb dev` works too |
+| **Zero Config** | No setup files, no boilerplate |
+
+---
+
+## Commands
+
+### `runbook set` — Save a command
 
 ```bash
-npm install -g runbook-cli
-```
-
-##  Usage
-
-### Set Commands
-
-```bash
-# Basic
 runbook set dev "npm run dev"
-
-# With install
-runbook set dev "npm install && npm run dev"
-
-# Backend
-runbook set start "python manage.py runserver"
-
-# Docker
-runbook set up "docker-compose up -d"
-
-# Multi-step
-runbook set deploy "npm run build && npm run test && git push"
+runbook set test "npm test"
+runbook set build "npm run build"
+runbook set deploy "npm run build && git push"
 ```
 
-### Run Commands
+### `runbook <name>` — Run it
 
 ```bash
-# Run a command
 runbook dev
 
 # Works from any subfolder
 cd src/components
-runbook dev  # Still works!
+runbook dev    # Still works!
 
 # Short alias
 rb dev
 ```
 
-### List Commands
+### `runbook list` — See all commands
 
 ```bash
-# See all commands
 runbook list
-
-# Or just
+# or just
 runbook
 ```
 
-### Delete Commands
+### `runbook delete` — Remove a command
 
 ```bash
 runbook delete dev
@@ -104,123 +127,105 @@ runbook delete dev
 runbook rm dev
 ```
 
-### Project Info
+### `runbook info` — Project info
 
 ```bash
 runbook info
 ```
 
-## How It Works
+---
 
-- Finds your git root automatically
-- Stores commands in `.runbook` in project root
-- Works from any subfolder
-- Team shares via git (commit `.runbook`)
+## Real-World Examples
 
-## Example Workflow
+<details>
+<summary><b>Node.js / Next.js</b></summary>
 
-```bash
-# New project
-cd my-project
-runbook set dev "npm install && npm run dev"
-runbook set test "npm test"
-
-# 3 months later, can't remember
-runbook
-# Shows: dev, test
-
-runbook dev
-# Runs instantly
-
-# In subfolder
-cd src/pages
-runbook dev
-# Still works!
-```
-
-## Team Usage
-
-Commit `.runbook` to git:
-
-```bash
-git add .runbook
-git commit -m "Add runbook commands"
-```
-
-Now everyone runs:
-```bash
-runbook dev  # Works for everyone
-```
-
-## Commands Reference
-
-```bash
-runbook set <name> <command>   # Set a command
-runbook <name>                 # Run a command
-runbook list                   # List all commands
-runbook delete <name>          # Delete a command
-runbook info                   # Show project info
-runbook                        # Show available commands
-rb                             # Short alias
-```
-
-## Examples
-
-### Node.js
 ```bash
 runbook set dev "npm install && npm run dev"
 runbook set build "npm run build"
 runbook set test "npm test"
+runbook set lint "npm run lint"
 ```
 
-### Python/Django
+</details>
+
+<details>
+<summary><b>Python / Django</b></summary>
+
 ```bash
 runbook set dev "pip install -r requirements.txt && python manage.py runserver"
 runbook set migrate "python manage.py migrate"
 runbook set shell "python manage.py shell"
 ```
 
-### Go
+</details>
+
+<details>
+<summary><b>Go</b></summary>
+
 ```bash
 runbook set dev "go run main.go"
 runbook set build "go build -o bin/app"
 runbook set test "go test ./..."
 ```
 
-### Docker
+</details>
+
+<details>
+<summary><b>Docker</b></summary>
+
 ```bash
 runbook set up "docker-compose up -d"
 runbook set down "docker-compose down"
 runbook set logs "docker-compose logs -f"
 ```
 
-### Full Stack
+</details>
+
+<details>
+<summary><b>Full Stack</b></summary>
+
 ```bash
 runbook set dev "docker-compose up -d && npm run dev"
 runbook set backend "cd backend && python manage.py runserver"
 runbook set frontend "cd frontend && npm start"
 ```
 
-##  Why runbook?
+</details>
 
-| Feature | runbook | README | Makefile | package.json scripts |
-|---------|---------|---------|----------|---------------------|
-| **Works everywhere** | ✅ Any subfolder | ❌ Root only | ❌ Root only | ❌ Root only |
-| **Cross-language** | ✅ Node, Python, Go, Rust | ✅ | ✅ | ❌ Node only |
-| **No config** | ✅ Just set & run | ❌ Need to read | ❌ Need Makefile | ❌ Need package.json |
-| **Team sharing** | ✅ Commit `.runbook` | ⚠️ Documentation | ⚠️ Documentation | ⚠️ Node projects |
-| **Instant recall** | ✅ `runbook` shows all | ❌ Search README | ❌ Search Makefile | ❌ Open file |
+---
 
-##  Real-World Benefits
+## Team Usage
 
-- **Onboarding**: New dev runs `runbook dev`, they're coding in 10 seconds
-- **Context switching**: Jump between 5 projects? Each has different commands? `runbook` remembers
-- **Remote work**: SSH into server, forgot commands? `runbook` knows
-- **Polyglot teams**: Frontend, backend, mobile - all use `runbook`
+Commit `.runbook` to git — your whole team gets the same commands:
 
-##  Examples
+```bash
+git add .runbook
+git commit -m "Add runbook commands"
+```
 
-Commands stored in `.runbook` in project root (JSON format).
+New dev joins? They run `runbook dev` and they're coding in 10 seconds.
+
+---
+
+## Why runbook?
+
+| | runbook | README | Makefile | package.json |
+|---|:---:|:---:|:---:|:---:|
+| **Works from subfolders** | :white_check_mark: | :x: | :x: | :x: |
+| **Cross-language** | :white_check_mark: | :white_check_mark: | :white_check_mark: | :x: |
+| **No config needed** | :white_check_mark: | :x: | :x: | :x: |
+| **Team sharing** | :white_check_mark: | :warning: | :warning: | :warning: |
+| **Instant recall** | :white_check_mark: | :x: | :x: | :x: |
+
+---
+
+## How It Works
+
+1. **Finds your git root** automatically
+2. **Stores commands** in `.runbook` (JSON) at project root
+3. **Works from any subfolder** — always resolves to project root
+4. **Team shares** by committing `.runbook` to git
 
 ```json
 {
@@ -230,27 +235,38 @@ Commands stored in `.runbook` in project root (JSON format).
 }
 ```
 
-**Tip:** Commit `.runbook` to git so your team uses the same commands!
+---
 
-##  Contributing
+## Development
 
-Found a bug? Have an idea? [Open an issue](https://github.com/brian-mwirigi/runbook-cli/issues) or submit a PR!
+```bash
+git clone https://github.com/brian-mwirigi/runbook-cli.git
+cd runbook-cli
+npm install
+npm run build
+npm link
+runbook set hello "echo hello world"
+runbook hello
+```
 
-##  License
+## Contributing
 
-MIT
+Contributions welcome! Please [open an issue](https://github.com/brian-mwirigi/runbook-cli/issues) or submit a PR.
 
-##  Author
+## License
 
-Built by [Brian Mwirigi](https://github.com/brian-mwirigi)  
-Blog: [brianmunene.me/blog](https://brianmunene.me/blog)
+[MIT](./LICENSE)
 
 ---
 
 <div align="center">
-  <strong>Stop thinking. Start running.</strong>
-  <br><br>
-  <a href="https://www.npmjs.com/package/runbook-cli">npm</a> •
-  <a href="https://github.com/brian-mwirigi/runbook-cli">GitHub</a> •
-  <a href="https://github.com/brian-mwirigi/runbook-cli/issues">Issues</a>
+
+**Built by [Brian Munene Mwirigi](https://brianmunene.me)**
+
+<a href="https://www.npmjs.com/package/runbook-cli">npm</a> &bull;
+<a href="https://www.brianmunene.me/docs/runbook-cli-docs">Docs</a> &bull;
+<a href="https://github.com/brian-mwirigi/runbook-cli/issues">Issues</a>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:667eea,100:764ba2&height=80&section=footer" width="100%"/>
+
 </div>
